@@ -80,7 +80,7 @@ class NewsController extends BaseAdminController
             'published' => [
                 'th'        => 'Published',
                 'tr'        => function ($model) {
-                    return ($model->pubilsh_at < time() ? '<div class="label label-success">Published</div>' : '<div class="label label-danger">Not Published</div>');
+                    return ($model->publish_at->format('U') <= time() ? '<div class="label label-success">Published</div>' : '<div class="label label-danger">Not Published</div>');
                 },
                 'tr-class'  => 'text-center',
                 'sorting'   => true,
