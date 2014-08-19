@@ -7,7 +7,12 @@ class NewsController extends BaseController
 
     public function getNews()
     {
-        return News\Models\News::all();
+
+        $posts = News\Models\News::getCurrent();
+
+        return $this->setView('news.homepage', [
+            'posts' => $posts
+        ]);
     }
 
     public function getNewsBySlug($slug)

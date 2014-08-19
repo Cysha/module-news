@@ -13,6 +13,7 @@ class ServiceProvider extends BaseServiceProvider
     private function registerOtherPackages()
     {
         $serviceProviders = [
+            'MaxHoffmann\Parsedown\ParsedownServiceProvider',         # https://github.com/maxhoffmann/parsedown-laravel
         ];
 
         foreach ($serviceProviders as $sp) {
@@ -20,6 +21,7 @@ class ServiceProvider extends BaseServiceProvider
         }
 
         $aliases = [
+            'Markdown'        => 'MaxHoffmann\Parsedown\ParsedownFacade',
         ];
 
         foreach ($aliases as $alias => $class) {
