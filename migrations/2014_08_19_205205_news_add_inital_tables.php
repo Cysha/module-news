@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class PagesAddInitalTables extends Migration
+class NewsAddInitalTables extends Migration
 {
 
     /**
