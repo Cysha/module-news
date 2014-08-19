@@ -1,4 +1,4 @@
-<?php namespace Cysha\Modules\Pages\Models;
+<?php namespace Cysha\Modules\News\Models;
 
 use Cache;
 
