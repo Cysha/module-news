@@ -9,8 +9,8 @@ Route::group(['prefix' => 'admin'], function () use ($namespace) {
         Route::group(array('prefix' => '{newsid}'), function () use ($namespace) {
             $namespace .= '\NewsManager';
 
-            Route::post('edit', array( 'uses' => $namespace.'\NewsController@postEdit'));
-            Route::get('edit', array('as' => 'admin.news.edit', 'uses' => $namespace.'\NewsController@getEdit'));
+            Route::post('edit', array( 'uses' => $namespace.'\EditNewsController@postEdit'));
+            Route::get('edit', array('as' => 'admin.news.edit', 'uses' => $namespace.'\EditNewsController@getEdit'));
         });
 
         Route::get('add', array('as' => 'admin.news.add', 'uses' => $namespace.'\NewsController@getAdd', 'before' => 'permissions'));

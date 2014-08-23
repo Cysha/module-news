@@ -17,7 +17,9 @@ class NewsController extends BaseController
 
     public function getNewsBySlug($slug)
     {
-        return News\Models\News::whereSlug($slug)->get()->first();
+        return $this->setView('news._row', [
+            'post' => News\Models\News::whereSlug($slug)->get()->first()->transform()
+        ]);
     }
 
 }
