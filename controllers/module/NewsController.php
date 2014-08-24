@@ -8,17 +8,18 @@ class NewsController extends BaseController
     public function getNews()
     {
 
-        $posts = News\Models\News::getCurrent();
+        $posts = News\Models\News::getCurrent(5);
 
         return $this->setView('news.homepage', [
             'posts' => $posts
         ]);
     }
 
-    public function getNewsBySlug($slug)
+    public function getNewsById(News\Models\News $objNews)
     {
+
         return $this->setView('news._row', [
-            'post' => News\Models\News::whereSlug($slug)->get()->first()->transform()
+            'post' => $objNews->transform()
         ]);
     }
 

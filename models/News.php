@@ -6,13 +6,27 @@ use Config;
 class News extends BaseModel
 {
 
+    public $rules = [
+        'creating' => [
+            'title'   => 'required|unique:news,title',
+            'slug'    => 'required|unique:news,slug',
+            'hide'    => 'required|in:0,1',
+            'content' => 'required',
+        ],
+        'updating' => [
+            'title'   => 'unique:news,title,:id:',
+            'slug'    => 'unique:news,slug,:id:',
+            'hide'    => 'in:0,1',
+        ],
+    ];
+
     public $fillable = [
         'author_id', 'title', 'slug', 'content', 'view_count', 'publish_at', 'hide'
     ];
     protected $identifiableName = 'title';
     protected $link = [
         'route'      => 'pxcms.news.view',
-        'attributes' => ['name' => 'slug'],
+        'attributes' => ['id', 'slug'],
     ];
 
     public function author()
@@ -21,9 +35,9 @@ class News extends BaseModel
         return $this->belongsTo($model, 'author_id', 'id');
     }
 
-    public function scopeGetCurrent($query)
+    public function scopeGetCurrent($query, $limit = 5)
     {
-        return $query->where('publish_at', '<=', date('Y-m-d h:i:s', time()))->whereHide(0)->orderBy('publish_at', 'desc')->get();
+        return $query->where('publish_at', '<=', date('Y-m-d h:i:s', time()))->whereHide(0)->take($limit)->orderBy('publish_at', 'desc')->get();
     }
 
     public function getContentAttribute($value)
@@ -41,17 +55,17 @@ class News extends BaseModel
     public function transform()
     {
         $data = [
-            'id'           => (int) $this->id,
-            'title'        => (string) $this->title,
-            'content'      => (string) $this->content,
-            'slug'        => (string) $this->slug,
-            'link'        => (string) $this->makeLink(false),
-            'href'        => (string) $this->makeLink(true),
+            'id'         => (int) $this->id,
+            'title'      => (string) $this->title,
+            'content'    => (string) $this->content,
+            'slug'       => (string) $this->slug,
+            'link'       => (string) $this->makeLink(false),
+            'href'       => (string) $this->makeLink(true),
 
-            'publish_at'   => date_array($this->publish_at),
-            'created_at'   => date_array($this->created_at),
-            'updated_at'   => date_array($this->updated_at),
-            'author'       => $this->author->transform(),
+            'publish_at' => date_array($this->publish_at),
+            'created_at' => date_array($this->created_at),
+            'updated_at' => date_array($this->updated_at),
+            'author'     => $this->author->transform(),
         ];
 
         return $data;

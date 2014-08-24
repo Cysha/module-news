@@ -109,15 +109,9 @@ class NewsController extends BaseAdminController
                 'th' => 'Actions',
                 'tr' => function ($model) {
                     return [[
-                        'btn-text'  => 'View User',
-                        'btn-link'  => ( Auth::user()->can('admin.user.view') ? sprintf('/admin/users/%d/view', $model->id) : '#' ),
-                        'btn-class' => ( Auth::user()->can('admin.user.view') ? 'btn btn-default btn-sm btn-labeled' : 'btn btn-warning btn-sm btn-labeled disabled' ),
-                        'btn-icon'  => 'fa fa-file-text-o'
-                    ],
-                    [
                         'btn-text'  => 'Edit',
-                        'btn-link'  => ( Auth::user()->can('admin.user.edit') ? sprintf('/admin/users/%d/edit', $model->id) : '#' ),
-                        'btn-class' => ( Auth::user()->can('admin.user.edit') ? 'btn btn-warning btn-sm btn-labeled' : 'btn btn-warning btn-sm btn-labeled disabled' ),
+                        'btn-link'  => ( Auth::user()->can('admin.news.edit') ? sprintf('/admin/news/%d/edit', $model->id) : '#' ),
+                        'btn-class' => ( Auth::user()->can('admin.news.edit') ? 'btn btn-warning btn-sm btn-labeled' : 'btn btn-warning btn-sm btn-labeled disabled' ),
                         'btn-icon'  => 'fa fa-pencil'
                     ]];
                 },
