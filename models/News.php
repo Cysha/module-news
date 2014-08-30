@@ -37,7 +37,7 @@ class News extends BaseModel
 
     public function scopeGetCurrent($query, $limit = 5)
     {
-        return $query->where('publish_at', '<=', date('Y-m-d h:i:s', time()))->whereHide(0)->take($limit)->orderBy('publish_at', 'desc')->get();
+        return $query->where('publish_at', '<=', date('Y-m-d H:i:s', time()))->whereHide(0)->take($limit)->orderBy('publish_at', 'desc')->get();
     }
 
     public function getContentAttribute($value)
