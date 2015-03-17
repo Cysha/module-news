@@ -42,9 +42,8 @@ class News extends BaseModel
 
     public function getContentAttribute($value)
     {
-        return \Markdown::parse($value);
+        return parseMarkdown($value);
     }
-
 
 
     public function getDates()

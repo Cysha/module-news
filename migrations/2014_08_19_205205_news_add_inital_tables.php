@@ -19,7 +19,7 @@ class NewsAddInitalTables extends Migration
             $table->integer('author_id');
             $table->string('title');
             $table->string('slug');
-            $table->string('content')->nullable()->default(null);
+            $table->text('content')->nullable()->default(null);
             $table->tinyInteger('view_count')->default(0);
             $table->boolean('hide')->default(false);
             $table->timestamp('publish_at');
