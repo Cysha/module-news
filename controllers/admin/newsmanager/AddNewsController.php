@@ -10,6 +10,7 @@ class AddNewsController extends BaseNewsManagerController
 
     public function getAdd()
     {
+        $this->objTheme->asset()->add('slugify', 'packages/module/news/assets/admin/js/editor.js');
         return $this->setView('news.admin.form');
     }
 
