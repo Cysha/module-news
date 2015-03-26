@@ -11,8 +11,8 @@ Route::group(['prefix' => 'admin'], function () use ($namespace) {
 
         $namespace .= '\NewsManager';
 
-        Route::model('newsid', 'Cysha\Modules\News\Models\News');
-        Route::group(array('prefix' => '{newsid}'), function () use ($namespace) {
+        Route::model('news_post_id', 'Cysha\Modules\News\Models\News');
+        Route::group(array('prefix' => '{news_post_id}'), function () use ($namespace) {
 
             Route::post('edit', array( 'uses' => $namespace.'\EditNewsController@postEdit'));
             Route::get('edit', array('as' => 'admin.news.edit', 'uses' => $namespace.'\EditNewsController@getEdit'));

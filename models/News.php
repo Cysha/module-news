@@ -26,7 +26,7 @@ class News extends BaseModel
     protected $identifiableName = 'title';
     protected $link = [
         'route'      => 'pxcms.news.view',
-        'attributes' => ['id', 'slug'],
+        'attributes' => ['news_post_id' => 'id', 'slug'],
     ];
 
     public function author()
