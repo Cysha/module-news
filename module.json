@@ -1,5 +1,23 @@
 {
-    "enabled": true,
-    "provider": "Cysha\\Modules\\News\\ServiceProvider",
-    "order": 5
+    "name": "News",
+    "alias": "news",
+    "description": "News Module for Phoenix CMS",
+    "authors": [
+        { "name": "xLink (Dan Aldridge)", "email": "xLink@cybershade.org" }
+    ],
+    "keywords": [
+    ],
+    "version": "v1.0.0",
+    "active": 1,
+    "order": 10,
+    "providers": [
+        "Cms\\Modules\\News\\Providers\\NewsModuleServiceProvider",
+        "Cms\\Modules\\News\\Providers\\NewsEventsProvider",
+        "Cms\\Modules\\News\\Providers\\NewsRoutingProvider"
+    ],
+    "aliases": {
+    },
+    "files": [
+        "helpers.php"
+    ]
 }
