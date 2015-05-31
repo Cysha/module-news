@@ -6,10 +6,10 @@ use Cms\Modules\News as News;
 class NewsController extends BaseController
 {
 
-    public function getNews(PostRepository $post)
+    public function getNews(PostRepository $repo)
     {
         return $this->setView('frontend.homepage', [
-            'posts' => $post->getLatest(5),
+            'posts' => $repo->getLatest(5),
         ]);
     }
 

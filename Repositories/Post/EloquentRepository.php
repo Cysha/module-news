@@ -27,7 +27,7 @@ class EloquentRepository extends BaseEloquentRepository implements PostRepositor
 
     public function getLatest($count = 5)
     {
-        return $this->model->where('publish_at', '<=', Carbon::now())
+        return $this->model->where('publish_at', '<=', Carbon::now()->timezone(config('app.timezone')))
             ->whereHide(0)
             ->take($count)
             ->orderBy('publish_at', 'desc')

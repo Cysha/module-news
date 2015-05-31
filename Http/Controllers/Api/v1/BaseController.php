@@ -1,6 +1,6 @@
-<?php namespace Cysha\Modules\News\Controllers\Api\V1;
+<?php namespace Cms\Modules\News\Http\Controllers\Api\V1;
 
-use Cysha\Modules\Core\Controllers\BaseApiController as BAC;
+use Cms\Modules\Core\Http\Controllers\BaseApiController as BAC;
 
 class BaseController extends BAC
 {
