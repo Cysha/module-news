@@ -10,8 +10,8 @@
             {!! Former::text('publish_at')->inlineHelp('<small>Published will be set to submitted date if not present. if you want to specify, YYYY-mm-dd h:i:s</small>') !!}
 
             {!! Former::radios('hide')->radios([
-                'Yes' => ['value' => 1],
-                'No' => ['value' => 0],
+                'Yes' => ['value' => '1'],
+                'No' => ['value' => '0'],
             ])->inline()->required() !!}
 
             <button class="btn-labeled btn btn-success pull-right" type="submit">
