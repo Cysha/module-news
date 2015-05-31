@@ -17,6 +17,7 @@ class UpdateController extends BaseAdminController
 
     public function getUpdate(News\Models\Post $post)
     {
+        $this->formAssets();
         Former::populate($post);
 
         return $this->setView('backend.form', [

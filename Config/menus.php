@@ -9,7 +9,7 @@ return [
                 'icon'          => 'fa-files-o',
                 'order'         => 1,
                 'permission'    => 'manage@news_post',
-                'activePattern' => '\/{backend}\/news\/(.*)'
+                'activePattern' => '\/{backend}\/news\/(\d)\/(.*)'
             ],
             [
                 'route'         => 'admin.news.create',

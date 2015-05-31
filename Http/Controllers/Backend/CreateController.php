@@ -17,8 +17,11 @@ class CreateController extends BaseAdminController
 
     public function getCreate()
     {
-        $this->theme->asset()->add('slugify', 'modules/news/admin/js/editor.js', ['app.js']);
-        return $this->setView('backend.form');
+        $this->formAssets();
+
+        return $this->setView('backend.form', [
+            'content' => '',
+        ]);
     }
 
     public function postCreate(Request $input, PostRepository $post)

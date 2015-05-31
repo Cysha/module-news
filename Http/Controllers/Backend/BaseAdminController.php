@@ -11,4 +11,9 @@ class BaseAdminController extends BaseBackendController
 
         $this->theme->setTitle('News');
     }
+
+    public function formAssets()
+    {
+        $this->theme->asset()->add('slugify', 'modules/news/admin/js/editor.js', ['app.js']);
+    }
 }
