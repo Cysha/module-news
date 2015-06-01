@@ -9,7 +9,8 @@ class BaseModel extends CoreBaseModel
     {
         parent::__construct();
 
-        $this->table = 'news_'.$this->table;
+        $prefix = config('cms.news.config.table-prefix', 'news_');
+        $this->table = $prefix.$this->table;
     }
 
 }
