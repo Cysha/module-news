@@ -15,7 +15,7 @@ class NewsAddInitalTables extends Migration
     {
         Schema::create('news_posts', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('author_id');
+            $table->integer('author_id')->unsigned();
             $table->string('title');
             $table->string('slug');
             $table->text('content')->nullable()->default(null);
