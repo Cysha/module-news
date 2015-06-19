@@ -26,10 +26,11 @@ class PostManager
              * Set up some table options, these will be passed back to the view
              */
             'options' => [
-                'filtering' => true,
-                'pagination' => true,
-                'sorting' => true,
+                'pagination' => false,
+                'searching' => true,
+                'ordering' => false,
                 'sort_column' => 'id',
+                'sort_order' => 'desc',
                 'source' => 'admin.news.manager',
                 'collection' => function () {
                     $model = 'Cms\Modules\News\Models\Post';
@@ -46,7 +47,7 @@ class PostManager
                     'tr' => function ($model) {
                         return $model->id;
                     },
-                    'sorting' => true,
+                    'orderable' => true,
                     'width' => '5%',
                 ],
 
@@ -55,8 +56,8 @@ class PostManager
                     'tr' => function ($model) {
                         return $model->author->screenname;
                     },
-                    'sorting' => true,
-                    'filtering' => true,
+                    'orderable' => true,
+                    'searchable' => true,
                     'width' => '10%',
                 ],
 
@@ -66,8 +67,8 @@ class PostManager
                         $model = $model->transform();
                         return sprintf('<a href="%s" target="news.preview">%s <i class="fa fa-external-link"></i></a>', $model['href'], $model['title']);
                     },
-                    'sorting' => true,
-                    'filtering' => true,
+                    'orderable' => true,
+                    'searchable' => true,
                     'width' => '25%',
                 ],
 
@@ -81,8 +82,8 @@ class PostManager
                         );
                     },
                     'tr-class' => 'text-center',
-                    'sorting' => true,
-                    'filtering' => true,
+                    'orderable' => true,
+                    'searchable' => true,
                     'width' => '5%',
                  ],
 
@@ -96,8 +97,8 @@ class PostManager
                         );
                     },
                     'tr-class' => 'text-center',
-                    'sorting' => true,
-                    'filtering' => true,
+                    'orderable' => true,
+                    'searchable' => true,
                     'width' => '5%',
                 ],
 
