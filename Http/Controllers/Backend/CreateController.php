@@ -33,7 +33,7 @@ class CreateController extends BaseAdminController
         }
         $input['author_id'] = \Auth::user()->id;
 
-        if ($post->slugExists($input->get('slug'))) {
+        if ($post->slugExists(array_get($input, 'slug'))) {
             return redirect(redirect('admin.news.create'))
                 ->withInput()
                 ->withError('Error, slug already exists, pick another.');
