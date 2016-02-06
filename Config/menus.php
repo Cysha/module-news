@@ -3,7 +3,7 @@
 return [
     'backend_sidebar' => [
         'News' => [
-            'order' => '5',
+            'order' => 101,
             'children' => [
                 [
                     'route'         => 'admin.news.manager',
