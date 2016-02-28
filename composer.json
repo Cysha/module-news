@@ -8,9 +8,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "composer/installers"               : "dev-master",
+        "composer/installers" : "dev-master",
 
-        "league/commonmark"                 : "0.9.*@dev"
+        "league/commonmark" : "0.9.*@dev"
     },
     "repositories": [
         { "type": "vcs", "url": "https://github.com/cysha/installers" }
