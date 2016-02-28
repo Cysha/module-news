@@ -1,5 +1,5 @@
 {
-    "name": "cysha/pxcms-news",
+    "name": "cysha/module-news",
     "type": "pxcms-module",
     "description": "News Module for PhoenixCMS",
     "license": "MIT",
