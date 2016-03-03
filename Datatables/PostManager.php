@@ -15,7 +15,7 @@ class PostManager
                 'header' => [
                     [
                         'btn-text'  => 'Create News Post',
-                        'btn-link'  => 'admin.news.create',
+                        'btn-link'  =>  route('admin.news.create'),
                         'btn-class' => 'btn btn-info btn-labeled',
                         'btn-icon'  => 'fa fa-plus'
                     ],
