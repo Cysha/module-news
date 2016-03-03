@@ -43,7 +43,7 @@ class UpdateController extends BaseAdminController
             ->withInfo('News Article Updated');
     }
 
-    public function deleteDelete(News\Models\Post $post, PostRepository $repo, Request $input) {
+    public function deletePost(News\Models\Post $post, PostRepository $repo, Request $input) {
         if(!$repo->slugExists($post->slug)) {
             return redirect(route('admin.news.manager'))
                 ->withError('Error, the article you are trying to delete does not exist.');

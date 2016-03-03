@@ -13,7 +13,7 @@ $router->group([
         });
 
         $router->group(['prefix' => 'delete'], function (Router $router) {
-            $router->delete('delete', ['as' => 'admin.news.delete', 'uses' => 'UpdateController@deleteDelete']);
+            $router->delete('delete', ['as' => 'admin.news.delete', 'uses' => 'UpdateController@deletePost']);
         });
     });
 
