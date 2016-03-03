@@ -15,7 +15,7 @@ class PostManager
                 'header' => [
                     [
                         'btn-text'  => 'Create News Post',
-                        'btn-link'  =>  route('admin.news.create'),
+                        'btn-route' => 'admin.news.create',
                         'btn-class' => 'btn btn-info btn-labeled',
                         'btn-icon'  => 'fa fa-plus'
                     ],
@@ -127,16 +127,26 @@ class PostManager
                     'tr' => function ($model) {
                         $return = [];
 
-                        if (Lock::can('manage.update', 'news_post')) {
-                            $return[] = [
-                                'btn-title' => 'Edit',
-                                'btn-link'  => route('admin.news.update', [
-                                    'news_post_id' => $model->id
-                                ]),
-                                'btn-class' => 'btn btn-warning btn-xs btn-labeled',
-                                'btn-icon'  => 'fa fa-pencil'
-                            ];
-                        }
+                        $return[] = [
+                            'btn-title'     => 'Edit',
+                            'btn-link'      => route('admin.news.update', [
+                                'news_post_id' => $model->id
+                            ]),
+                            'btn-class'     => 'btn btn-warning btn-xs btn-labeled',
+                            'btn-icon'      => 'fa fa-pencil',
+                            'hasPermission' => 'manage.update@news_post'
+                        ];
+
+                        $return[] = [
+                            'btn-title'     => 'Delete',
+                            'btn-link'      => route('admin.news.delete', ['news_post_id' => $model->id]),
+                            'btn-method'    => 'post',
+                            'btn-class'     => 'btn btn-danger btn-xs btn-labeled',
+                            'btn-extras'    => 'data-remote="true" data-disable-with="<i class=\'fa fa-refresh fa-spin\'></i>" data-datatable="refresh" data-confirm="Are you sure you want to delete this article?"',
+                            'btn-icon'      => 'fa fa-times',
+                            'btn-method'    => 'delete',
+                            'hasPermission' => 'manage.delete@news_post'
+                        ];
 
                         return $return;
                     },
