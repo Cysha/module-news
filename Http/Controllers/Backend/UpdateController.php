@@ -1,4 +1,6 @@
-<?php namespace Cms\Modules\News\Http\Controllers\Backend;
+<?php
+
+namespace Cms\Modules\News\Http\Controllers\Backend;
 
 use Cms\Modules\News\Repositories\Post\RepositoryInterface as PostRepository;
 use Cms\Modules\News as News;
@@ -7,7 +9,6 @@ use Former;
 
 class UpdateController extends BaseAdminController
 {
-
     public function boot()
     {
         parent::boot();
@@ -43,13 +44,14 @@ class UpdateController extends BaseAdminController
             ->withInfo('News Article Updated');
     }
 
-    public function deletePost(News\Models\Post $post, PostRepository $repo, Request $input) {
-        if(!$repo->slugExists($post->slug)) {
+    public function deletePost(News\Models\Post $post, PostRepository $repo, Request $input)
+    {
+        if (!$repo->slugExists($post->slug)) {
             return redirect(route('admin.news.manager'))
                 ->withError('Error, the article you are trying to delete does not exist.');
         }
 
-        if(!$post->delete()) {
+        if (!$post->delete()) {
             return redirect(route('admin.news.manager'))->withErrors($post->errors());
         }
     }

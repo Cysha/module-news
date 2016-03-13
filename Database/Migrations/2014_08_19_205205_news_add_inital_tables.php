@@ -5,11 +5,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class NewsAddInitalTables extends Migration
 {
-
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -29,8 +26,6 @@ class NewsAddInitalTables extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

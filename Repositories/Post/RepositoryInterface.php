@@ -1,9 +1,10 @@
-<?php namespace Cms\Modules\News\Repositories\Post;
+<?php
+
+namespace Cms\Modules\News\Repositories\Post;
 
 /**
- * Interface RoleRepository
+ * Interface RoleRepository.
  */
 interface RepositoryInterface
 {
-
 }

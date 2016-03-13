@@ -1,10 +1,11 @@
-<?php namespace Cms\Modules\News\Http\Controllers\Backend;
+<?php
+
+namespace Cms\Modules\News\Http\Controllers\Backend;
 
 use Cms\Modules\Core\Http\Controllers\BaseBackendController;
 
 class BaseAdminController extends BaseBackendController
 {
-
     public function boot()
     {
         parent::boot();

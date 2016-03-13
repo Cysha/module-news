@@ -1,8 +1,9 @@
-<?php namespace Cms\Modules\News\Repositories\Post;
+<?php
+
+namespace Cms\Modules\News\Repositories\Post;
 
 use Cms\Modules\Core\Repositories\BaseEloquentRepository;
 use Cms\Modules\News\Repositories\Post\RepositoryInterface as PostRepository;
-use Illuminate\Database\Eloquent\Collection;
 use Carbon\Carbon;
 
 class EloquentRepository extends BaseEloquentRepository implements PostRepository
@@ -22,7 +23,7 @@ class EloquentRepository extends BaseEloquentRepository implements PostRepositor
             $exists->where('id', '<>', $id);
         }
 
-        return ($exists->get()->first() === null ? false : true);
+        return $exists->get()->first() === null ? false : true;
     }
 
     public function getLatest($count = 5)

@@ -1,12 +1,11 @@
-<?php namespace Cms\Modules\News\Providers;
+<?php
+
+namespace Cms\Modules\News\Providers;
 
 use Cms\Modules\Core\Providers\BaseModuleProvider;
-use Illuminate\Foundation\AliasLoader;
-use Config;
 
 class NewsModuleServiceProvider extends BaseModuleProvider
 {
-
     /**
      * Register the defined middleware.
      *
@@ -28,7 +27,7 @@ class NewsModuleServiceProvider extends BaseModuleProvider
     ];
 
     /**
-     * Register repository bindings to the IoC
+     * Register repository bindings to the IoC.
      *
      * @var array
      */
@@ -37,12 +36,10 @@ class NewsModuleServiceProvider extends BaseModuleProvider
     ];
 
     /**
-     * Register Auth related stuffs
+     * Register Auth related stuffs.
      */
     public function register()
     {
         parent::register();
-
     }
-
 }

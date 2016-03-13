@@ -2,6 +2,6 @@
 
 return array(
     'pxcms-index' => [
-        '\Cms\Modules\News\Http\Controllers\Frontend\NewsController@getNews' => 'News Homepage'
+        '\Cms\Modules\News\Http\Controllers\Frontend\NewsController@getNews' => 'News Homepage',
     ],
 );

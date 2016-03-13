@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 
 $router->group([
-    'prefix' => 'news'
+    'prefix' => 'news',
 ], function (Router $router) {
 
     $router->group(['prefix' => '{news_post_id}'], function (Router $router) {

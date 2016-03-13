@@ -1,4 +1,6 @@
-<?php namespace Cms\Modules\News\Providers;
+<?php
+
+namespace Cms\Modules\News\Providers;
 
 use Cms\Modules\Core\Providers\CmsRoutingProvider;
 use Illuminate\Routing\Router;
@@ -6,7 +8,6 @@ use Cms\Modules\News;
 
 class NewsRoutingProvider extends CmsRoutingProvider
 {
-
     protected $namespace = 'Cms\Modules\News\Http\Controllers';
 
     /**
@@ -14,7 +15,7 @@ class NewsRoutingProvider extends CmsRoutingProvider
      */
     protected function getFrontendRoute()
     {
-        return __DIR__ . '/../Http/routes-frontend.php';
+        return __DIR__.'/../Http/routes-frontend.php';
     }
 
     /**
@@ -22,7 +23,7 @@ class NewsRoutingProvider extends CmsRoutingProvider
      */
     protected function getBackendRoute()
     {
-        return __DIR__ . '/../Http/routes-backend.php';
+        return __DIR__.'/../Http/routes-backend.php';
     }
 
     /**
@@ -30,7 +31,7 @@ class NewsRoutingProvider extends CmsRoutingProvider
      */
     protected function getApiRoute()
     {
-        return __DIR__ . '/../Http/routes-api.php';
+        return __DIR__.'/../Http/routes-api.php';
     }
 
     public function boot(Router $router)
@@ -38,7 +39,7 @@ class NewsRoutingProvider extends CmsRoutingProvider
         parent::boot($router);
 
         $router->bind('news_post_id', function ($id) {
-            return with(new News\Models\Post)->findOrFail($id);
+            return with(new News\Models\Post())->findOrFail($id);
         });
     }
 }

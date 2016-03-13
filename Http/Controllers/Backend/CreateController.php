@@ -1,4 +1,6 @@
-<?php namespace Cms\Modules\News\Http\Controllers\Backend;
+<?php
+
+namespace Cms\Modules\News\Http\Controllers\Backend;
 
 use Cms\Modules\News\Repositories\Post\RepositoryInterface as PostRepository;
 use Cms\Modules\News as News;
@@ -7,7 +9,6 @@ use Carbon\Carbon;
 
 class CreateController extends BaseAdminController
 {
-
     public function boot()
     {
         parent::boot();
