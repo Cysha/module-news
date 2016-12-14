@@ -3,8 +3,7 @@
 namespace Cms\Modules\News\Providers;
 
 use Cms\Modules\Core\Providers\CmsRoutingProvider;
-use Illuminate\Routing\Router;
-use Cms\Modules\News;
+use Illuminate\Support\Facades\Route;
 
 class NewsRoutingProvider extends CmsRoutingProvider
 {
@@ -34,12 +33,12 @@ class NewsRoutingProvider extends CmsRoutingProvider
         return __DIR__.'/../Http/routes-api.php';
     }
 
-    public function boot(Router $router)
+    public function boot()
     {
-        parent::boot($router);
+        parent::boot();
 
-        $router->bind('news_post_id', function ($id) {
-            return with(new News\Models\Post())->findOrFail($id);
+        Route::bind('news_post_id', function ($id) {
+            return with(new Post())->findOrFail($id);
         });
     }
 }

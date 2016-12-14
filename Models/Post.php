@@ -18,7 +18,7 @@ class Post extends BaseModel
 
     public function author()
     {
-        $model = config('auth.model');
+        $model = config('cms.auth.config.user_model');
 
         return $this->belongsTo($model, 'author_id', 'id');
     }
